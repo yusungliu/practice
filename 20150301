@@ -2,7 +2,7 @@
 #include <algorithm>    //包含sort函數
 using namespace std;    //c++命名空間
 
-int students;//學生人數
+int students;    //學生人數
 
 int main()
 {
