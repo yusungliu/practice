@@ -1,0 +1,45 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int students;
+int maximum=0;
+int minimum=100;
+
+int main()
+{
+    while(cin>>students)
+    {
+        int score[students];
+        for(int i=0;i<students;i++)
+            cin>>score[i];
+        sort(score,score+students);
+        for(int i=0;i<students;i++)
+        {
+            if(i==(students-1))
+                cout<<score[i];
+            else
+                cout<<score[i]<<" ";
+        }
+        cout<<endl;
+        if(score[0]>=60)
+            cout<<"best case"<<endl;
+        else
+        {
+            int i=students-1;
+            while(score[i]>=60)
+                i--;
+            cout<<score[i]<<endl;
+        }
+        if(score[students-1]<60)
+            cout<<"worst case"<<endl;
+        else
+        {
+            int i=0;
+            while(score[i]<60)
+                i++;
+            cout<<score[i]<<endl;
+        }
+    }
+    return 0;
+}
