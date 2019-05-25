@@ -1,42 +1,40 @@
 #include <iostream>
-#include <algorithm>
-using namespace std;
+#include <algorithm>    //包含sort函數
+using namespace std;    //c++命名空間
 
-int students;
-int maximum=0;
-int minimum=100;
+int students;//學生人數
 
 int main()
 {
-    while(cin>>students)
+    while(cin>>students)    //方便輸入測資
     {
-        int score[students];
+        int score[students];    //學生分數
         for(int i=0;i<students;i++)
             cin>>score[i];
-        sort(score,score+students);
-        for(int i=0;i<students;i++)
+        sort(score,score+students);    //由小到大排序
+        for(int i=0;i<students;i++)    //輸出分數
         {
-            if(i==(students-1))
+            if(i==(students-1))    //須加空格
                 cout<<score[i];
-            else
+            else    //不須空格
                 cout<<score[i]<<" ";
         }
         cout<<endl;
-        if(score[0]>=60)
+        if(score[0]>=60)    //最低分及格
             cout<<"best case"<<endl;
         else
         {
             int i=students-1;
-            while(score[i]>=60)
+            while(score[i]>=60)    //由大到小至第一個不及格
                 i--;
             cout<<score[i]<<endl;
         }
-        if(score[students-1]<60)
+        if(score[students-1]<60)    //最高分不及格
             cout<<"worst case"<<endl;
         else
         {
             int i=0;
-            while(score[i]<60)
+            while(score[i]<60)    //從小到大至第一個及格
                 i++;
             cout<<score[i]<<endl;
         }
