@@ -1,32 +1,32 @@
 #include <iostream>
-#include <algorithm>
+#include <algorithm>    //包含sort函數
 using namespace std;
 
-int a,b,c;
-int input[3];
+int a,b,c;    //簡化程式用(非必要)
+int input[3];    //使用陣列方便sort
 
 int main()
 {
-    while(cin>>input[0]>>input[1]>>input[2])
+    while(cin>>input[0]>>input[1]>>input[2])    //方便輸入測資
     {
-        sort(input,input+3);
-        a=input[0];
+        sort(input,input+3);    //整理陣列
+        a=input[0];    //程式簡化用
         b=input[1];
         c=input[2];
         for(int i=0;i<3;i++)
         {
             if(i==2)
-                cout<<input[i]<<endl;
+                cout<<input[i]<<endl;    //直接換行
             else
-                cout<<input[i]<<' ';
+                cout<<input[i]<<' ';    //輸出空格
         }
-        if(a+b<=c)
+        if(a+b<=c)    //是否為三角形
             cout<<"No"<<endl;
-        else if(a*a+b*b==c*c)
+        else if(a*a+b*b==c*c)    //判斷直角三角形
             cout<<"Right"<<endl;
-        else if(a*a+b*b<c*c)
+        else if(a*a+b*b<c*c)    //判斷銳角三角形
             cout<<"Obtuse"<<endl;
-        else if(a*a+b*b>c*c)
+        else if(a*a+b*b>c*c)    //判斷鈍角三角形
             cout<<"Acute"<<endl;
     }
 
