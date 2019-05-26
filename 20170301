@@ -1,0 +1,26 @@
+#include <iostream>
+#include <cstring>    //包含strlen函數
+using namespace std;
+
+char x[1000];    //以字元陣列取得
+
+int main()
+{
+    while(cin>>x)
+    {
+        int even=0;    //偶數位
+        int odd=0;    //奇數位
+        for(int i=0;i<strlen(x);i++)
+        {
+            if((i%2)==0)    //偶數位
+                even+=(x[i]-'0');    //字元轉數值
+            else    //奇數位
+                odd+=(x[i]-'0');    //字元轉數值
+        }
+        if(even>=odd)    //取絕對值
+            cout<<(even-odd)<<endl;
+        else
+            cout<<(odd-even)<<endl;
+    }
+    return 0;
+}
