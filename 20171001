@@ -1,0 +1,48 @@
+#include<iostream>
+using namespace std;
+
+int a,b,c;    //c表運算結果
+
+int main()
+{
+    while(cin>>a>>b>>c)    //方便書入測資
+    {
+        if(a==0&&b==0)    //ab皆為0
+        {
+            if(c==0)    //邏輯運算為0
+            {
+                cout<<"AND"<<endl<<"OR"<<endl<<"XOR"<<endl;
+            }
+            else    //邏輯運算不為0
+                cout<<"IMPOSSIBLE"<<endl;
+        }
+        else if(a==0&&b!=0)    //a為0且b不為0
+        {
+            if(c==0)
+            {
+                cout<<"AND"<<endl;
+            }
+            else
+                cout<<"OR"<<endl<<"XOR"<<endl;
+        }
+        else if(a!=0&&b==0)    //a不為0且b不為0
+        {
+            if(c==0)
+            {
+                cout<<"AND"<<endl;
+            }
+            else
+                cout<<"OR"<<endl<<"XOR"<<endl;
+        }
+        else if(a!=0&&b!=0)    //ab皆不為0
+        {
+            if(c==0)
+            {
+                cout<<"XOR"<<endl;
+            }
+            else
+                cout<<"AND"<<endl<<"OR"<<endl;
+        }
+    }
+    return 0;
+}
