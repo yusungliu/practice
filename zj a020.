@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-int turn(char);    //主程式過大故移出
+int turn(char);    //主程式過長故使用副程式
 using namespace std;
 int ft;    //宣告轉換後英文數字
 int sum;    //宣告最終數字和
