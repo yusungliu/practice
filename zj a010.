@@ -1,0 +1,35 @@
+#include <iostream>
+
+using namespace std;
+
+int input=0;    //輸入
+int countl=0;    //次方
+
+int main()
+{
+    while(cin>>input)    //方便輸入測資
+    {
+        for(int i=2;i<=input;i++)    //尋找因數(i)
+        {
+            countl=0;    //次方歸零
+            while(input%i==0)    //避免if判斷區多次執行
+            {
+                while(input%i==0)    //利用整除求因數
+                {
+                    input/=i;
+                    countl+=1;
+                }
+                if(countl>1&&input==1)    //次方數大於1且已除完
+                    cout<<i<<'^'<<countl<<endl;
+                else if(countl==1&&input==1)    //次方數為1且已除完
+                    cout<<i<<endl;
+                else if(countl>1&&input!=1)    //次方數大於1且未除完
+                    cout<<i<<'^'<<countl<<" * ";
+                else    //次方數為1且未除完
+                    cout<<i<<" * ";
+            }
+
+        }
+    }
+    return 0;
+}
