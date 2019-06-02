@@ -2,8 +2,8 @@
 
 using namespace std;
 
-int input=0;    //輸入
-int countl=0;    //次方
+int input=0;    //表輸入
+int countl=0;    //表因數次方
 
 int main()
 {
@@ -28,7 +28,6 @@ int main()
                 else    //次方數為1且未除完
                     cout<<i<<" * ";
             }
-
         }
     }
     return 0;
