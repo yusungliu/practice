@@ -2,10 +2,10 @@
 #include <cmath>
 using namespace std;
 
-int rometodec(char word)
+int rometodec(char word)    //羅馬數字轉阿拉伯數字
 {
-    int result;
-    switch(word)
+    int result;    //宣告輸出
+    switch(word)    //使用switch函數判斷
     {
         case'I':
             result=1;
@@ -32,10 +32,10 @@ int rometodec(char word)
     return result;
 }
 
-int romepriority(char word)
+int romepriority(char word)    //羅馬數字優先權判斷
 {
-    int result;
-    switch(word)
+    int result;    //宣告輸出
+    switch(word)    //使用switch判斷
     {
         case'I':
             result=1;
@@ -62,41 +62,41 @@ int romepriority(char word)
     return result;
 }
 
-int dorometodec(string str)
+int dorometodec(string str)    //輸入的羅馬數字轉阿拉伯數字
 {
-    int strlength=str.length();
-    int result=0;
-    int temsum=rometodec(str[0]);
-    for(int i=1;i<strlength;i++)
+    int strlength=str.length();    //取得羅馬數字長度
+    int result=0;    //宣告輸出
+    int temsum=rometodec(str[0]);    //將第一位轉換後存入temsum
+    for(int i=1;i<strlength;i++)    //使用if判斷優先權並轉換
     {
         if(romepriority(str[i])<romepriority(str[i-1]))
         {
-            result+=temsum;
-            temsum=rometodec(str[i]);
+            result+=temsum;    //相加
+            temsum=rometodec(str[i]);    //將下一位存入temsum
         }
         else if(romepriority(str[i])==romepriority(str[i-1]))
         {
-            temsum+=rometodec(str[i]);
+            temsum+=rometodec(str[i]);    //相加
         }
         else
         {
-            result+=(rometodec(str[i])-temsum);
-            temsum=0;
+            result+=(rometodec(str[i])-temsum);    //後減前並相加
+            temsum=0;    //暫存歸零
         }
     }
-    result+=temsum;
+    result+=temsum;    //相加
     return result;
 }
 
-string dectorome(int num)
+string dectorome(int num)    //阿拉伯數字轉為羅馬數字
 {
-    int kind[]={1000,900,500,400,100,90,50,40,10,9,5,4,1};
-    string kindword[]={"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
-    string answer="";
-    int index=0;
-    while(num>=1)
+    int kind[]={1000,900,500,400,100,90,50,40,10,9,5,4,1};    //數字大小
+    string kindword[]={"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};    //數字類別
+    string answer="";    //宣告輸出
+    int index=0;    //宣告順序
+    while(num>=1)    執行至num為零
     {
-        while(num>=kind[index])
+        while(num>=kind[index])    //使用while函數重複執行至num小於該數字類別之數字大小
         {
             num-=kind[index];
             answer = answer + kindword[index];
@@ -112,16 +112,16 @@ int main()
     int num1,num2,num3;
     while(cin>>input1)
     {
-        if(input1=="#")
+        if(input1=="#")    //在輸入'#'後結束
             break;
         cin>>input2;
-        num1=dorometodec(input1);
-        num2=dorometodec(input2);
-        num3=abs(num1-num2);
+        num1=dorometodec(input1);    //羅馬數字轉阿拉伯數字
+        num2=dorometodec(input2);    //羅馬數字轉阿拉伯數字
+        num3=abs(num1-num2);    //相減後取絕對值
         if(num3==0)
             cout<<"ZERO"<<endl;
         else
-            cout<<dectorome(num3)<<endl;
+            cout<<dectorome(num3)<<endl;    //阿拉伯數字轉為羅馬數字
     }
     return 0;
 }
