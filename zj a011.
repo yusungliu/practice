@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+string input;    //宣告輸入
+
+int main()
+{
+    while(getline(cin,input))    //使用getline取得完整字串
+    {
+        int output=0;    //宣告字數
+        int sizel=input.length();    //取得輸入長度
+        int on=0;    //判斷是否為每句第一字
+        for(int i=0;i<sizel;i++)
+        {
+            if((input[i]<='Z'&&input[i]>='A')||(input[i]<='z'&&input[i]>='a'))    //判斷是否屬於英文字母
+                {
+                    if(on==0)    //若屬於英文字母且為第一字
+                    {
+                        output++;    //字數加一
+                        on=1;    //下一字不為第一字
+                    }
+                }
+            else    //若不屬於英文字母
+                on=0;    //下一字為第一字
+        }
+        cout<<output<<endl;
+    }
+    return 0;
+}
