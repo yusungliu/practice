@@ -1,0 +1,51 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int prime(int p[6000]={0})    //找出的質數約小於6000
+{
+    int k=1;
+    p[0]=2;    //第一個質數為2
+    for(int i=3;i<50000;i++)    //找出50000以內的質數
+    {
+        int check=0;    //判斷是否為質數
+        for(int j=1;j<=sqrt(i);j++)    //i是否可被根號i內的數整除
+        {
+            if(i%j==0&&j!=1)    //若可被1以外的數整除
+            {
+                check=1;    //則非質數
+                break;
+            }
+        }
+        if(check==0)    //若為質數
+        {
+            p[k]=i;  //帶回陣列
+            k++;
+        }
+    }
+    return p[6000];    //回傳質數表
+}
+
+int main()
+{
+    int x,p[6000];
+    p[6000]=prime(p);    //叫出質數表
+    while(cin>>x)
+    {
+        int check=0;    //判斷是否為質數
+        for(int i=0;i<6000;i++)    //將約為6000個質數一一帶入
+        {
+            if(p[i]==0||x==p[i])    //在表中找到自己或表找完了
+                break;
+            else if(x%p[i]==0||p[i]>x)    //可被表中的數整除或在範圍內找不到
+            {
+                check=1;    //則非質數
+                break;
+            }
+        }
+        if(check==0)
+            cout<<"質數"<<endl;
+        else
+            cout<<"非質數"<<endl;
+    }
+}
