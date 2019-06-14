@@ -5,7 +5,7 @@ int a,b,c;    //c表運算結果
 
 int main()
 {
-    while(cin>>a>>b>>c)    //方便書入測資
+    while(cin>>a>>b>>c)    //方便輸入測資
     {
         if(a==0&&b==0)    //ab皆為0
         {
